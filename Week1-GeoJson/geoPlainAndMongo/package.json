@@ -1,0 +1,25 @@
+{
+  "name": "geo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node run.js",
+    "dev": "nodemon run.js",
+    "makeData": "node mongoDemos/makeMongoGameData.js",
+    "query": "node mongoDemos/geoQueries.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "geojson-utils": "^1.1.0",
+    "mongoose": "^5.4.20",
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0"
+  }
+}
