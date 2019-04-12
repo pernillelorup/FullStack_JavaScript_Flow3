@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Blank Template",
-    "slug": "expo-template-blank",
+    "name": "pushclient",
+    "slug": "pushclient",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -25,7 +25,5 @@
     "ios": {
       "supportsTablet": true
     }
-  },
-  "slug": "pushclient",
-  "name": "pushclient"
+  }
 }

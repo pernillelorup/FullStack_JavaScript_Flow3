@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Platform, Text, View, StyleSheet, Alert } from "react-native";
 import { Constants, Location, Permissions, Notifications } from "expo";
-const PUSH_ENDPOINT = "http://ec41d512.ngrok.io";
+const PUSH_ENDPOINT = "localhost:5555";
 
 export default class App extends Component {
  state = {

@@ -1,13 +1,15 @@
 const { Expo } = require("expo-server-sdk");
 const express = require("express");
 const app = express();
-const PORT = 2345;
+const PORT = 5555;
 
 app.use(express.json());
 
+//push tokens bliver lagt ind i users
 let users = [];
 
 app.get("/", (req, res) => res.send("Push Demo Server"));
+
 app.post("/register", (req, res) => {
     const newUser = req.body;
     //newUser.id = newUser.id+(Math.floor(Math.random()*100)) //For "alene test"
@@ -22,17 +24,15 @@ app.post("/register", (req, res) => {
     users.push(newUser);
     res.json(newUser);
 
-});
+})
 
-app.post("/send", (res, req) => {
-
+app.post("/send", (req, res) => {
     const msg = req.body;
     if (users.length > 0) {
         notifyUsers(users, msg, "text");
     }
     res.json({ info: `This message was sent`, msg })
-
-});
+})
 
 async function notifyUsers(users, msg, type) {
     let expo = new Expo();
@@ -65,4 +65,6 @@ async function notifyUsers(users, msg, type) {
     };
 }
 
-app.listen(PORT, () => "Server started listening on port: " + PORT);
+
+
+app.listen(PORT, () => "Server started, listeniing on port: " + PORT);
