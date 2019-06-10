@@ -132,15 +132,49 @@ module.exports = {
 	isUserinArea
 };
 ```
+<br>
 
 >## Explain and demonstrate ways to create Geo-JSON test data
 
+### Create new features and use them (fast way)
+https://github.com/grem848/mini-project-fullstackjs2019/blob/master/makeData.js
+
+### Testing as it should be
+https://github.com/grem848/mini-project-fullstackjs2019/tree/master/test
+
+<br>
+
 >## Explain the typical order of longitude and latitude used by Server Side API’s and Client Side API’s
+
+<img src="https://www.ecsecc.org/assets/0/images/LatLong.png" width="500">
+
+**There is no order for longitude,latitude**
+
+HOWEVER!
+In mathematical functions x,y are used, for the geographic coordinate system we use lon,lat or inverse.
+The x-axis relates to longitude and y to latitude and the x,y order is ususally prefered.
+
+
+
+From (old) navigation and geography latitude and longitude was used.
+To figure out your latitude, you just needed (a) the calendar date, and (b) some astronomical measurements (like for instance, the angle of the sun above the horizon at its highest point on a given day as measured from your ship). 
+
+This has made the standard for many services to latitude, longitude.
+
+<br>
 
 >## Explain and demonstrate a REST API that implements geo-features, using a relevant geo-library and plain JavaScript
 
+<br>
+
 >## Explain and demonstrate a REST API that implements geo-features, using Mongodb’s geospatial queries and indexes.
+
+<br>
 
 >## Explain and demonstrate a React Native Client that uses geo-components (Location, MapView, etc.)
 
+<br>
+
 >## Demonstrate both server and client-side, of the geo-related parts of your implementation of the mini project
+
+<br>
