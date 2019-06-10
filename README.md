@@ -2,6 +2,7 @@
 
 ## Period-3 Geo-data, GeoJSON, Geospatial Queries with MongoDB, React Native/Expo’s Location and MapView Components
 ### https://github.com/grem848/mini-project-fullstackjs2019
+### https://github.com/pernillelorup/mini-project-native-app
 
 
 # Detailed Questions
@@ -172,6 +173,8 @@ This has made the standard for many services to latitude, longitude.
 <br>
 
 >## Explain and demonstrate a React Native Client that uses geo-components (Location, MapView, etc.)
+
+https://github.com/pernillelorup/mini-project-native-app
 
 <br>
 
