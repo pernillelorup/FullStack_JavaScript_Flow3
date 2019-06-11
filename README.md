@@ -158,7 +158,9 @@ The x-axis relates to longitude and y to latitude and the x,y order is ususally 
 
 
 From (old) navigation and geography latitude and longitude was used.
-To figure out your latitude, you just needed (a) the calendar date, and (b) some astronomical measurements (like for instance, the angle of the sun above the horizon at its highest point on a given day as measured from your ship). 
+To figure out your latitude, you just needed (a) the calendar date, and (b) some astronomical measurements (like for instance, the angle of the sun above the horizon at its highest point on a given day as measured from your ship).
+
+To figure out your longitude, you would need a precise clock tracking time from some reference point.
 
 This has made the standard for many services to latitude, longitude.
 
@@ -166,9 +168,48 @@ This has made the standard for many services to latitude, longitude.
 
 >## Explain and demonstrate a REST API that implements geo-features, using a relevant geo-library and plain JavaScript
 
+### Rest endpoint that takes a position and measures distance a user
+```js
+/* GET distance to user from username and coordinates */
+router.get('/distanceToUser/:lon/:lat/:username', async function(req, res, next) {
+	var { lon, lat, username } = req.params;
+	var obj = await queryFacade.getDistanceToUser(lon, lat, username).catch((err) => {
+		res.status(404).json({ msg: err.message });
+	});
+	if (obj !== undefined) {
+		res.status(200).json({ distance: obj.distance, to: obj.username });
+	}
+});
+```
+### getDistanceToUser method
+```js
+const gju = require('geojson-utils');
+
+async function getDistanceToUser(lon, lat, username) {
+	const user_id = await User.findOne({ userName: username }).select({ _id: 1 });
+	if (user_id !== null) {
+		return (userPos = await Position.findOne({ user: user_id })
+			.catch(() => {
+				throw new Error(`${username} doesn't have a Location`);
+			})
+			.then(async (data) => {
+				if (data === null) {
+					throw new Error(`${username} doesn't have a Location`);
+				} else {
+					const point = { type: 'Point', coordinates: [ lon, lat ] };
+					const distance = await gju.pointDistance(point, data.loc); // finds distance in meters between Point and User
+					return { username: username, distance };
+				}
+			}));
+	} else {
+		throw new Error(`User: ${username} doesn't Exist`);
+	}
+}
+```
 <br>
 
 >## Explain and demonstrate a REST API that implements geo-features, using Mongodb’s geospatial queries and indexes.
+
 
 <br>
 
