@@ -167,6 +167,7 @@ This has made the standard for many services to latitude, longitude.
 <br>
 
 >## Explain and demonstrate a REST API that implements geo-features, using a relevant geo-library and plain JavaScript
+>## Explain and demonstrate a REST API that implements geo-features, using Mongodb’s geospatial queries and indexes.
 
 ### Rest endpoint that takes a position and measures distance a user
 ```js
@@ -206,10 +207,6 @@ async function getDistanceToUser(lon, lat, username) {
 	}
 }
 ```
-<br>
-
->## Explain and demonstrate a REST API that implements geo-features, using Mongodb’s geospatial queries and indexes.
-
 
 <br>
 
