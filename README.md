@@ -167,7 +167,6 @@ This has made the standard for many services to latitude, longitude.
 <br>
 
 >## Explain and demonstrate a REST API that implements geo-features, using a relevant geo-library and plain JavaScript
->## Explain and demonstrate a REST API that implements geo-features, using Mongodb’s geospatial queries and indexes.
 
 ### Rest endpoint that takes a position and measures distance a user
 ```js
@@ -207,6 +206,26 @@ async function getDistanceToUser(lon, lat, username) {
 	}
 }
 ```
+
+<br>
+
+>## Explain and demonstrate a REST API that implements geo-features, using Mongodb’s geospatial queries and indexes.
+
+Geospatial Query Operators
+MongoDB provides the following geospatial query operators:
+
+Name	Description
+* $geoIntersects
+	* Selects geometries that intersect with a GeoJSON geometry. The 2dsphere index supports $geoIntersects.
+
+* $geoWithin
+	* Selects geometries within a bounding GeoJSON geometry. The 2dsphere and 2d indexes support $geoWithin.
+
+* $near	
+	* Returns geospatial objects in proximity to a point. Requires a geospatial index. The 2dsphere and 2d indexes support $near.
+
+* $nearSphere
+	* Returns geospatial objects in proximity to a point on a sphere. Requires a geospatial index. The 2dsphere and 2d indexes support $nearSphere.
 
 <br>
 
