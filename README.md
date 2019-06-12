@@ -211,7 +211,7 @@ async function getDistanceToUser(lon, lat, username) {
 
 >## Explain and demonstrate a REST API that implements geo-features, using Mongodb’s geospatial queries and indexes.
 
-Geospatial Query Operators
+### Geospatial Query Operators
 MongoDB provides the following geospatial query operators:
 
 Name	Description
@@ -227,6 +227,12 @@ Name	Description
 * $nearSphere
 	* Returns geospatial objects in proximity to a point on a sphere. Requires a geospatial index. The 2dsphere and 2d indexes support $nearSphere.
 
+
+### Indexes 
+Indexes support the efficient resolution of queries. Without indexes, MongoDB must scan every document of a collection to select those documents that match the query statement. This scan is highly inefficient and require MongoDB to process a large volume of data.
+
+
+Here key is the name of the field on which you want to create index and 1 is for ascending order. To create index in descending order you need to use -1.
 
 ```js
 async function isUserinArea(areaName, username) {
