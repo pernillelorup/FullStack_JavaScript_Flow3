@@ -213,6 +213,7 @@ async function getDistanceToUser(lon, lat, username) {
 >## Explain and demonstrate a React Native Client that uses geo-components (Location, MapView, etc.)
 
 https://github.com/pernillelorup/mini-project-native-app
+https://expo.io/@grem848/mini-project-app-2019
 
 <br>
 
