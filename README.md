@@ -227,6 +227,39 @@ Name	Description
 * $nearSphere
 	* Returns geospatial objects in proximity to a point on a sphere. Requires a geospatial index. The 2dsphere and 2d indexes support $nearSphere.
 
+
+```js
+async function isUserinArea(areaName, username) {
+	const area = await Area.findOne({ name: areaName });
+	if (area === null) {
+		throw new Error('Area Not Found');
+	}
+	const user_id = await User.findOne({ userName: username }).select({ _id: 1 });
+	if (user_id !== null) {
+		const userPos = await Position.findOne({
+			user: user_id,
+			loc: {
+				$geoWithin: {
+					$geometry: area
+				}
+			}
+		}).catch(() => {
+			throw new Error(`${username} doesn't have a Location`);
+		});
+		var status = false;
+		var msg = 'Point was NOT inside tested polygon';
+		if (userPos !== null) {
+			status = true;
+			msg = 'Point was inside the tested polygon';
+		}
+		return { status, msg };
+	} else {
+		throw new Error(`User: ${username} doesn't Exist`);
+	}
+}
+```
+
+
 <br>
 
 >## Explain and demonstrate a React Native Client that uses geo-components (Location, MapView, etc.)
