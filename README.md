@@ -5,7 +5,7 @@
 ### https://github.com/pernillelorup/mini-project-native-app
 
 
-# Detailed Questions
+# Detailed Questions 
 
 >## Explain and demonstrate basic Geo-JSON, involving as a minimum, Points and Polygons
 
